@@ -334,7 +334,7 @@ mod_history = model1.fit(train_data,
                      batch_size=batch_size,
                      epochs=epochs,
                      verbose=1,
-                     validation_data=(test_data, test_labels_one_hot),
+                     validation_split=(0.2),
                      callbacks=callbacks_list)
 
 mod_evaluate = model1.evaluate(test_data, test_labels_one_hot, verbose=2)
@@ -388,7 +388,7 @@ print("Confusion matrix:\n{}".format(confusion_matrix(y_test, y_pred_bool)))
 bal_acc = balanced_accuracy_score(y_test, y_pred_bool)
 
 print("------------------------------------------------------------------")
-print('Balanced accuracy on validation set (y_true Vs y_pred): %.2f%%' % (bal_acc * 100))
+print('Balanced accuracy on test set (y_true Vs y_pred): %.2f%%' % (bal_acc * 100))
 print("------------------------------------------------------------------")
 
 print("This model is: ", namepath)
